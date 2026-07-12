@@ -7,6 +7,8 @@ pubDate: 2026-07-13
 
 ## What is Setform?
 
+<img src="/images/setform/dashboard.jpeg" alt="Dashboard showing graphs">
+
 [Setform](https://setform-app.netlify.app/) started with a simple frustration: despite the number of fitness platforms available today, none of them captured a swim workout the way I actually thought about it.
 
 Garmin records GPS data, heart rate, and lap times. Strava is excellent for analysing completed activities. TrainingPeaks excels at planning. But none of them let me accurately record the structure of a squad training session while preserving the rich telemetry my watch captured.
@@ -60,6 +62,8 @@ Garmin, Strava and FIT files provide metrics such as:
 - pace
 - SWOLF
 - elapsed time
+
+<img src="/images/setform/workout-editor.png" alt="Form showing edit fields">
 
 ## Technical Design
 
