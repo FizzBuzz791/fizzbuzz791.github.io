@@ -1,5 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const featuredProjects = [
+	{
+		title: "Setform",
+		description: "Swimming/workout tracking and structured training data.",
+		href: "/projects/setform",
+		status: "Active",
+	},
+];
 
 const latestPostCount = 3;
 const postModules = import.meta.glob("./writing/*.md", { eager: true });
@@ -26,6 +36,11 @@ const latestPosts = Object.values(postModules)
 
 	<section>
 		<h2>Featured Projects</h2>
+		<div class="project-list">
+			{featuredProjects.map((project) => (
+				<ProjectCard {...project} />
+			))}
+		</div>
 	</section>
 
 	<section>
@@ -50,5 +65,11 @@ const latestPosts = Object.values(postModules)
 
 	<section>
 		<h2>Current Focus</h2>
+		<p>
+			I'm currently working on Kindrel, a tool for comparing household internet plans and making switching decisions easier.
+		</p>
+		<p>
+			<a href="/projects/kindrel">View project</a>
+		</p>
 	</section>
 </Layout>
