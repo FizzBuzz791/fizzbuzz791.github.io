@@ -1,5 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const latestPostCount = 3;
+const postModules = import.meta.glob("./writing/*.md", { eager: true });
+
+const latestPosts = Object.values(postModules)
+	.map((post: any) => ({
+		url: post.url,
+		frontmatter: post.frontmatter,
+	}))
+	.sort(
+		(a, b) =>
+			new Date(b.frontmatter.pubDate).getTime() -
+			new Date(a.frontmatter.pubDate).getTime()
+	)
+	.slice(0, latestPostCount);
 ---
 
 <Layout>
@@ -15,6 +30,22 @@ import Layout from '../layouts/Layout.astro';
 
 	<section>
 		<h2>Latest Writing</h2>
+		<div class="post-list">
+			{latestPosts.map((post) => (
+				<a class="post-card" href={post.url}>
+					<p class="eyebrow">
+						{new Date(post.frontmatter.pubDate).toLocaleDateString("en-AU", {
+							year: "numeric",
+							month: "long",
+							day: "numeric",
+						})}
+					</p>
+
+					<h3>{post.frontmatter.title}</h3>
+					<p>{post.frontmatter.description}</p>
+				</a>
+			))}
+		</div>
 	</section>
 
 	<section>
