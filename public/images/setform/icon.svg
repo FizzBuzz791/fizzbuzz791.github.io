@@ -1,0 +1,9 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Setform icon</title>
+  <desc id="desc">Rounded square Setform app icon with ascending progress bars</desc>
+  <rect width="128" height="128" rx="28" fill="#EAF4FF"/>
+  <rect x="28" y="66" width="14" height="34" rx="7" fill="#228BE6"/>
+  <rect x="50" y="48" width="14" height="52" rx="7" fill="#228BE6" opacity="0.88"/>
+  <rect x="72" y="30" width="14" height="70" rx="7" fill="#228BE6" opacity="0.74"/>
+  <path d="M28 106H92" stroke="#228BE6" stroke-width="8" stroke-linecap="round" opacity="0.2"/>
+</svg>

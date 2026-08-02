@@ -1,75 +1,84 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 
 const featuredProjects = [
-	{
-		title: "Setform",
-		description: "Swimming/workout tracking and structured training data.",
-		href: "/projects/setform",
-		status: "Active",
-	},
+  {
+    title: "Setform",
+    description: "Swimming/workout tracking and structured training data.",
+    href: "https://setform-app.netlify.app/",
+    status: "Active",
+    image: "/public/images/setform/icon.svg",
+    imageAlt: "Setform workout dashboard",
+  },
 ];
 
 const latestPostCount = 3;
 const postModules = import.meta.glob("./writing/*.md", { eager: true });
 
 const latestPosts = Object.values(postModules)
-	.map((post: any) => ({
-		url: post.url,
-		frontmatter: post.frontmatter,
-	}))
-	.sort(
-		(a, b) =>
-			new Date(b.frontmatter.pubDate).getTime() -
-			new Date(a.frontmatter.pubDate).getTime()
-	)
-	.slice(0, latestPostCount);
+  .map((post: any) => ({
+    url: post.url,
+    frontmatter: post.frontmatter,
+  }))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).getTime() -
+      new Date(a.frontmatter.pubDate).getTime(),
+  )
+  .slice(0, latestPostCount);
 ---
 
 <Layout>
-	<section class="hero">
-		<h1>Hi, I'm Trent.</h1>
-		<p>Technical leader, software builder, and product-minded engineer based in Perth.</p>
-		<p>I build practical tools that turn messy real-world decisions into clear, usable software.</p>
-	</section>
+  <section class="hero">
+    <h1>Hi, I'm Trent.</h1>
+    <p>
+      Technical leader, software builder, and product-minded engineer based in
+      Perth.
+    </p>
+    <p>
+      I build practical tools that turn messy real-world decisions into clear,
+      usable software.
+    </p>
+  </section>
 
-	<section>
-		<h2>Featured Projects</h2>
-		<div class="project-list">
-			{featuredProjects.map((project) => (
-				<ProjectCard {...project} />
-			))}
-		</div>
-	</section>
+  <section>
+    <h2>Featured Projects</h2>
+    <div class="project-list">
+      {featuredProjects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </section>
 
-	<section>
-		<h2>Latest Writing</h2>
-		<div class="post-list">
-			{latestPosts.map((post) => (
-				<a class="post-card" href={post.url}>
-					<p class="eyebrow">
-						{new Date(post.frontmatter.pubDate).toLocaleDateString("en-AU", {
-							year: "numeric",
-							month: "long",
-							day: "numeric",
-						})}
-					</p>
+  <section>
+    <h2>Latest Writing</h2>
+    <div class="post-list">
+      {
+        latestPosts.map((post) => (
+          <a class="post-card" href={post.url}>
+            <p class="eyebrow">
+              {new Date(post.frontmatter.pubDate).toLocaleDateString("en-AU", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
 
-					<h3>{post.frontmatter.title}</h3>
-					<p>{post.frontmatter.description}</p>
-				</a>
-			))}
-		</div>
-	</section>
+            <h3>{post.frontmatter.title}</h3>
+            <p>{post.frontmatter.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 
-	<section>
-		<h2>Current Focus</h2>
-		<p>
-			I'm currently working on Kindrel, a tool for comparing household internet plans and making switching decisions easier.
-		</p>
-		<p>
-			<a href="/projects/kindrel">View project</a>
-		</p>
-	</section>
+  <section>
+    <h2>Current Focus</h2>
+    <p>
+      I'm currently working on Kindrel, a tool for comparing household internet
+      plans and making switching decisions easier.
+    </p>
+    <p>
+      <a href="/projects/kindrel">View project</a>
+    </p>
+  </section>
 </Layout>

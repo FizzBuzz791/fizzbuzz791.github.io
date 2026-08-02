@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="120" fill="#2fb188" />
+  <rect width="512" height="512" rx="120" fill="url(#kindrelFade512)" />
+  <circle cx="256" cy="256" r="108" fill="white" fill-opacity="0.95" />
+  <defs>
+    <linearGradient id="kindrelFade512" x1="72" y1="56" x2="440" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2fb188" />
+      <stop offset="1" stop-color="#4b86f9" />
+    </linearGradient>
+  </defs>
+</svg>
